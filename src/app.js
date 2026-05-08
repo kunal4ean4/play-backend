@@ -1,4 +1,3 @@
-
 import express from "express"
 import cors from "cors"
 import cookieParser from "cookie-parser"
@@ -12,4 +11,14 @@ app.use(express.json({limit:"16kb"}))
 app.use(express.urlencoded({extended:true,limit:"16kb"}))
 app.use(express.static("public"))
 app.use(cookieParser())
+
+
+// Routes import
+import userRouter from './routes/user.routes.js'
+//Routes decleration as per the industry standard
+// app.js: routes hit -> hit method in controller controller
+app.use("/api/v1/users",userRouter) //http://localhost:8000/users/register
+
+
+
 export default app;
